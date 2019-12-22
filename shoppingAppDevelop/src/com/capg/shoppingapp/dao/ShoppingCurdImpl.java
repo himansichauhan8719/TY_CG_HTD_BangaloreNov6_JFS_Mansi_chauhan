@@ -27,7 +27,7 @@ public class ShoppingCurdImpl implements ShoppingCurd {
 			reader=new FileReader("db.properties");
 			prop=new Properties();
 			prop.load(reader);
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,7 +63,7 @@ public class ShoppingCurdImpl implements ShoppingCurd {
 	public Product getProduct(String proName) {
 		try(Connection con=DriverManager.getConnection(prop.getProperty("dbUrl"),
 				prop.getProperty("dbUser"),prop.getProperty("dbPassword"));
-				PreparedStatement pstmt=con.prepareStatement(prop.getProperty("loginQuery"));
+				PreparedStatement pstmt=con.prepareStatement(prop.getProperty("showAllProduct"));
 				){	
 			pstmt.setString(1, proName);
 			ResultSet rs=pstmt.executeQuery();
