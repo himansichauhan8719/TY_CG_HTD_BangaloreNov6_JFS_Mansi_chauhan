@@ -1,0 +1,35 @@
+<div class="col-md-4 offset-4 card mt-4">
+    <div class="card-body">
+        <form action="" #form="ngForm" (ngSubmit)="submit(form)">
+            <h1 class="display-5 text-center">SignIn</h1>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input ngModel
+                name="username"
+                #username='ngModel'
+                required
+                pattern="[a-z]{1,9}"
+                type="text" class="form-control"
+                placeholder="enter username" id="username"/>
+                <div *ngIf="form.invalid && username.touched" class="text-danger alert alert-danger">
+                  <p *ngIf="username.errors.required">username is required</p>
+                  <p *ngIf="username.errors.pattern">username not matched</p>
+                  </div>
+            </div>
+              <div class="form-group">
+                    <label for="password">Password</label>
+                    <input ngModel
+                    name="password" 
+                    type="password" class="form-control"
+                    placeholder="enter password" id="password"/>
+                </div>
+               
+
+                <div class="form-group">
+                    <button 
+                    [disabled]="!form.valid"
+                    class="btn btn-primary btn-block">Signin</button>
+                </div>
+        </form>
+    </div>
+</div>

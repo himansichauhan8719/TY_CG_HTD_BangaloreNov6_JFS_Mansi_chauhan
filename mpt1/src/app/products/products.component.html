@@ -1,0 +1,7 @@
+<div class="card mb-3" *ngFor="let p of product">
+    <img src="{{p.image}}" class="img-rounded max-width:100%" width="100" alt="">
+    <div class="card-body">
+      <h5 class="card-title">{{p.name}}</h5>
+      <p class="card-text">{{p.price}}</p>
+    </div>
+  </div>
